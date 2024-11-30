@@ -173,7 +173,7 @@ local function completion_inserter(current_completion, insert_text)
 
 	server.accept_completion(current_completion.completion.completionId)
 
-	return '<C-g>u' .. delete_range .. insert_text .. cursor_text
+	return "<C-g>u" .. delete_range .. insert_text .. cursor_text
 end
 
 function M.accept()
@@ -484,7 +484,7 @@ end
 
 function M.debounced_complete()
 	M.clear()
-	if config.options.virtual_text.manual or not server.is_healthy() or not M.filetype_enabled(vim.fn.bufnr("")) then
+	if config.options.virtual_text.manual or not server:is_healthy() or not M.filetype_enabled(vim.fn.bufnr("")) then
 		return
 	end
 	local current_buf = vim.fn.bufnr("")
